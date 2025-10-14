@@ -38,6 +38,7 @@ curl -k https://cse-f.github.io/vp/12.js
 curl -k https://cse-f.github.io/vp/13.js
   
 14. Design an ASP.NET Web form to create the registration page by using necessary controls.
+curl -k https://cse-f.github.io/vp/14.js
   
 15. Develop the c# console application to create the private assembly and use it in different application.
 curl -k https://cse-f.github.io/vp/15.js
@@ -69,10 +70,10 @@ salary = (basicSalary * numberOfDays) + HRA + DA
 PartTimeEmployee Salary Formula:
 salary = dailyWages * numberOfDays
 Display the employee details along with the calculated salary
-curl -k https://cse-f.github.io/vp/121.js
+curl -k https://cse-f.github.io/vp/21.js
 
 22. Develop ASP.NET web form to demonstrate how to use the SmtpMail class to send the mail in the .Net Framework
 
 23. Demonstrate the procedure to validate an email address and phone number in ASP.NET page
-
+curl -k https://cse-f.github.io/vp/23.js
   
