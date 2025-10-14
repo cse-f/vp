@@ -73,6 +73,7 @@ Display the employee details along with the calculated salary
 curl -k https://cse-f.github.io/vp/21.js
 
 22. Develop ASP.NET web form to demonstrate how to use the SmtpMail class to send the mail in the .Net Framework
+curl -k https://cse-f.github.io/vp/22.js
 
 23. Demonstrate the procedure to validate an email address and phone number in ASP.NET page
 curl -k https://cse-f.github.io/vp/23.js
