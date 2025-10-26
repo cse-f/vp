@@ -5,6 +5,15 @@ step 4:click view>server Explorer
 step 5:you will be opened server explorer on the left side
         right click on data connections>create connection>select microsoft sql server>inside name enter .\SQLEXPRESS and select ok
 step 5.1:after adding new connection,right click on it and open query,create a table employee and insert some value..
+        
+                CREATE TABLE Employees (
+                    ID INT PRIMARY KEY,
+                    Name NVARCHAR(50)
+                );
+                
+                INSERT INTO Employees (ID, Name) VALUES (2, 'Priya');
+                INSERT INTO Employees (ID, Name) VALUES (3, 'Ravi');
+
 step 6:on right side on project name right click>add>new item>webform
 step 7:you will be opened webform at bottom select design
 step 8:select view at top>toolbox now toolbox will be opened
