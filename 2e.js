@@ -1,50 +1,34 @@
-using System;
-using System.Text;
-using System.Text.RegularExpressions;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace Task2
+class Program
 {
-    public delegate void OperationCallback(int result);
+    delegate void MyDelegate(string msg);
 
-    class Program
+    static void ShowMessage(string msg)
     {
-        static async Task Main(string[] args)
-        {
-            Console.WriteLine("=== Delegate and Callback Demo ===\n");
+        Console.WriteLine($"[{msg}] Starting...");
+        Thread.Sleep(2000); // Simulate long task (2 sec)
+        Console.WriteLine($"[{msg}] Finished!");
+    }
 
-            // Synchronous example
-            Console.WriteLine("Synchronous Example:");
-            PerformOperation(5, 10, AddNumbers, ResultCallback);
+    static async Task Main()
+    {
+        MyDelegate del = ShowMessage;
 
-            Console.WriteLine("\nAsynchronous Example:");
-            // Asynchronous example using Task.Run
-            OperationCallback del = new OperationCallback(ResultCallback);
+        Console.WriteLine("=== Synchronous Call ===");
+        del("Sync Call 1");
+        del("Sync Call 2");
 
-            // Run asynchronously
-            Task.Run(() => del(42));
+        Console.WriteLine("\n=== Asynchronous Call ===");
+        // Both run at same time — not blocking
+        Task t1 = Task.Run(() => del("Async Call 1"));
+        Task t2 = Task.Run(() => del("Async Call 2"));
 
-            Console.WriteLine("Main method continues after async call...\n");
+        Console.WriteLine("Main thread still working...");
+        await Task.WhenAll(t1, t2);  // Wait for async calls to finish
 
-            Console.WriteLine("Press any key to exit...");
-            Console.ReadKey();
-        }
-
-        static void PerformOperation(int a, int b, Func<int, int, int> operation, OperationCallback callback)
-        {
-            int result = operation(a, b);
-            callback(result);
-        }
-
-        static int AddNumbers(int x, int y)
-        {
-            Console.WriteLine($"Adding {x} + {y}...");
-            return x + y;
-        }
-
-        static void ResultCallback(int result)
-        {
-            Console.WriteLine($"Result: {result}");
-        }
+        Console.WriteLine("\nDone.");
     }
 }
